@@ -13,6 +13,8 @@ public class RewindCircle : MonoBehaviour
 
     public GameObject[] obstaclePrefabs;
 
+    public Player player;
+
     public void Start()
     {
         spawnTimer = spawnEvery;
@@ -20,7 +22,14 @@ public class RewindCircle : MonoBehaviour
 
     public void LateUpdate()
     {
-        transform.Rotate(new Vector3(0f, 0f, -rotation));
+        if (player.dir < 0)
+        {
+            transform.Rotate(new Vector3(0f, 0f, rotation));
+        }
+        else if (player.dir > 0)
+        {
+            transform.Rotate(new Vector3(0f, 0f, -rotation));
+        }
 
         rotation = rotationSpeed * Time.deltaTime;
 
