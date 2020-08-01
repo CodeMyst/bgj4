@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
 
     public float dir = 1;
 
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 5;
+    public float bulletCooldown = 1;
+    private float bulletTimer = 0;
+
     public void Update()
     {
         var x = Input.GetAxisRaw("Horizontal");
@@ -30,6 +35,18 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(0, jumpForce);
             grounded = false;
         }
+
+        if (bulletTimer >= bulletCooldown && Input.GetMouseButton(0))
+        {
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var target = mousePos - transform.position;
+            target.Normalize();
+            var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(target, Vector3.forward));
+            bullet.GetComponent<Rigidbody2D>().velocity = target * bulletSpeed;
+            bulletTimer = 0f;
+        }
+
+        bulletTimer += Time.deltaTime;
     }
 
     public void OnCollisionEnter2D(Collision2D col)
