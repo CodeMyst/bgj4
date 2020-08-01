@@ -6,6 +6,7 @@ TagManager:
   tags:
   - obstacle
   - rewind
+  - spike
   layers:
   - Default
   - TransparentFX

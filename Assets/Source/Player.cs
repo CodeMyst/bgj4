@@ -38,5 +38,10 @@ public class Player : MonoBehaviour
         {
             grounded = true;
         }
+
+        if (col.gameObject.tag == "spike")
+        {
+            Time.timeScale = 0f;
+        }
     }
 }

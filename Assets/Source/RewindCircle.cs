@@ -35,7 +35,7 @@ public class RewindCircle : MonoBehaviour
 
         if (spawnTimer >= spawnEvery)
         {
-            var spawned = Instantiate(obstaclePrefabs[0], spawnPos.position, Quaternion.identity, transform);
+            var spawned = Instantiate(obstaclePrefabs[0], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
 
             var sp = spawned.GetComponent<SpriteRenderer>();
 
