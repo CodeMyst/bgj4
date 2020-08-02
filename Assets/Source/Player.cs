@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Player : MonoBehaviour
     public float bulletSpeed = 5;
     public float bulletCooldown = 1;
     private float bulletTimer = 0;
+
+    public TextMeshProUGUI bulletText;
+    public uint bullets = 15;
 
     public void Update()
     {
@@ -36,7 +40,7 @@ public class Player : MonoBehaviour
             grounded = false;
         }
 
-        if (bulletTimer >= bulletCooldown && Input.GetMouseButton(0))
+        if (bulletTimer >= bulletCooldown && Input.GetMouseButton(0) && bullets > 0)
         {
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var target = mousePos - transform.position;
@@ -44,6 +48,8 @@ public class Player : MonoBehaviour
             var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(target, Vector3.forward));
             bullet.GetComponent<Rigidbody2D>().velocity = target * bulletSpeed;
             bulletTimer = 0f;
+            bullets--;
+            bulletText.SetText($"{bullets} bullets");
         }
 
         bulletTimer += Time.deltaTime;
