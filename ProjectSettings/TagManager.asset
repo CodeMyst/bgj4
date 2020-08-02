@@ -7,6 +7,7 @@ TagManager:
   - obstacle
   - rewind
   - spike
+  - bullet
   layers:
   - Default
   - TransparentFX

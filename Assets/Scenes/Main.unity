@@ -225,6 +225,8 @@ MonoBehaviour:
   spawnPos: {fileID: 1322583616}
   obstaclePrefabs:
   - {fileID: 2608348138935760857, guid: cc33f21b5873e64a5903752e859672c2, type: 3}
+  enemyPrefabs:
+  - {fileID: 6394468517245594290, guid: 9c9a474028349180f98190aed8a4c87b, type: 3}
   player: {fileID: 1974900048}
 --- !u!68 &250579864
 EdgeCollider2D:

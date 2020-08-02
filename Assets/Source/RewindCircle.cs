@@ -12,6 +12,7 @@ public class RewindCircle : MonoBehaviour
     public Transform spawnPos;
 
     public GameObject[] obstaclePrefabs;
+    public GameObject[] enemyPrefabs;
 
     public Player player;
 
@@ -35,13 +36,24 @@ public class RewindCircle : MonoBehaviour
 
         if (spawnTimer >= spawnEvery)
         {
-            var spawned = Instantiate(obstaclePrefabs[0], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
+            if (Random.Range(1, 3) == 1)
+            {
+                var spawned = Instantiate(obstaclePrefabs[0], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
 
-            var sp = spawned.GetComponent<SpriteRenderer>();
+                var sp = spawned.GetComponent<SpriteRenderer>();
 
-            spawned.transform.position -= new Vector3((sp.bounds.size.x / 2f) + 0.08f, 0);
+                spawned.transform.position -= new Vector3((sp.bounds.size.x / 2f) + 0.08f, 0);
 
-            spawnTimer = 0;
+                spawnTimer = 0;
+            }
+            else
+            {
+                var spawned = Instantiate(enemyPrefabs[0], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
+                var sp = spawned.GetComponent<SpriteRenderer>();
+                spawned.transform.position -= new Vector3((sp.bounds.size.x / 2f) + 1.25f, 0);
+
+                spawnTimer = 0;
+            }
         }
 
         spawnTimer += Time.deltaTime;
