@@ -227,6 +227,7 @@ MonoBehaviour:
   - {fileID: 2608348138935760857, guid: cc33f21b5873e64a5903752e859672c2, type: 3}
   enemyPrefabs:
   - {fileID: 6394468517245594290, guid: 9c9a474028349180f98190aed8a4c87b, type: 3}
+  - {fileID: 7401461196353451961, guid: 7ef86cd421576309587fe75578154548, type: 3}
   player: {fileID: 1974900048}
 --- !u!68 &250579864
 EdgeCollider2D:
@@ -677,7 +678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 31.320007, y: 10.799988}
+  m_AnchoredPosition: {x: 31.320068, y: 10.799988}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1284493563
@@ -1013,7 +1014,7 @@ MonoBehaviour:
   bulletSpeed: 25
   bulletCooldown: 0.25
   bulletText: {fileID: 1284493563}
-  bullets: 15
+  bullets: 50
 --- !u!61 &1974900049
 BoxCollider2D:
   m_ObjectHideFlags: 0

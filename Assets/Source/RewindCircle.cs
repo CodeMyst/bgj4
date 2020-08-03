@@ -48,7 +48,8 @@ public class RewindCircle : MonoBehaviour
             }
             else
             {
-                var spawned = Instantiate(enemyPrefabs[0], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
+                var randomIndex = Random.Range(0, enemyPrefabs.Length);
+                var spawned = Instantiate(enemyPrefabs[randomIndex], spawnPos.position, Quaternion.Euler(0f, 0f, 90f), transform);
                 var sp = spawned.GetComponent<SpriteRenderer>();
                 spawned.transform.position -= new Vector3((sp.bounds.size.x / 2f) + 1.25f, 0);
 

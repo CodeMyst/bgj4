@@ -12,13 +12,13 @@ public class BasicEnemy : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
 
-    public void Start()
+    public virtual void Start()
     {
         startPos = transform.localPosition;
         endPos = transform.localPosition + transform.up * moveDistance;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (transform.localPosition == endPos)
         {
